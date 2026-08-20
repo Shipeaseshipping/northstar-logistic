@@ -1,0 +1,9 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Public clients may fetch exactly one published tracking record by its key.
+    match /publicShipments/{key} { allow get: if true; allow list, create, update, delete: if false; }
+    // Private records and audit data can never be accessed directly by browsers.
+    match /{document=**} { allow read, write: if false; }
+  }
+}
