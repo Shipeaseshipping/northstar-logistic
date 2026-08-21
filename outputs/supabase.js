@@ -8,6 +8,7 @@ export const supabase = {
   rpc: (...args) => clientPromise.then(client => client.rpc(...args)),
   auth: {
     getUser: () => clientPromise.then(client => client.auth.getUser()),
+    signInWithPassword: credentials => clientPromise.then(client => client.auth.signInWithPassword(credentials)),
     signOut: () => clientPromise.then(client => client.auth.signOut()),
     onAuthStateChange: callback => {
       clientPromise.then(client => client.auth.onAuthStateChange(callback));
