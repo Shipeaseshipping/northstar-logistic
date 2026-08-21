@@ -4,7 +4,7 @@ document.head.append(style);
 
 function adminRoutes(){
   const form=document.getElementById('form'),host=document.getElementById('sections');
-  if(!form||!host||document.getElementById('route-editor'))return;
+  if(!form||!host||document.getElementById('route-editor')||form.querySelector('[name="Origin Facility"]'))return;
   const editor=document.createElement('section');editor.id='route-editor';editor.className='route-editor';
   editor.innerHTML='<div><label>Origin Facility</label><input name="Origin Facility" value="Lagos, Nigeria"></div><div><label>Delivery Destination</label><input name="Delivery Destination" value="Abidjan, Côte d’Ivoire"></div>';
   host.append(editor);
